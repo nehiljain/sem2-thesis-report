@@ -3,35 +3,32 @@
 
 \section{Introduction}
 
-In this report I focus on two aspects of my work. First will be the techniques used to enhance Walking Straight Application using Computer Vision. Later, I shall describe the work on Real-Time Emergency Response: Modern Tools for Modern Disasters.
-
-\section{Walking straight}
 \label{sec:xrefs}
 
-Walking without vision, results in veering, an inability to maintain a straight path that has important consequences. This is a well-known problem. Many studies have been done on this and proved the veering effect. The reason is not certain but is hypothesized to be motor error in stepping movement.  Blind people have the same problem. This makes crossing intersections and walking straight dangerous and unsafe.
+A well-known problem associated with walking without vision is veering, which is the inability to maintain a straight path. Many studies conducted previously have proven the veering effect and its consequences. The reason is uncertain but is hypothesized to be motor error in stepping movement.  Blind people face the same problem while walking. This makes crossing intersections and walking on a straight path dangerous and unsafe.
 
-‘Walking Straight’ a application for the smartphone device was developed.[3] It uses the available hardware on a smartphone device, the iPhone 4 to provide real-time audio feedback to the blind users to correct their deviation. The application is built using the ISAS (In-Situ Audio Services) [1] system architecture. The application uses compass and gyroscope sensors to calculate the deviation from a straight path. The values from the sensors are filtered to remove body sway of a person while walking. Different auditory feedback designs were evaluated experimentally and their performance was evaluated. A continuous tone played in the ear in the side of the deviation is concluded to be the most efficient way of rendering the audio feedback to the blind. [3].
+‘Walking Straight’ an application for the smartphone device was built by Paneels et al. [3]. It uses the available hardware on a smartphone device, the iPhone 4, to provide real-time audio feedback to the blind users in order to correct their deviation. The application is built using the ISAS (In-Situ Audio Services) [1] system architecture. The application uses compass and gyroscope sensors to calculate the deviation from a straight path. The values from the sensors are filtered to remove body sway of a person while walking. Different auditory feedback designs were evaluated experimentally and their performance was evaluated. A continuous tone played in the ear in the side of the deviation is concluded to be the most efficient way of rendering the audio feedback to the blind [3].
 
 \section{Are the sensors reliable?}
 
-The reliability of today’s smartphone sensors was done.[4----sensors study] The current state of walking straight algorithm assumes a stable 10Hz Gyroscope. It solely depends on the sensors to calculate the heading.  
-Captoins is mising
-The other two sensors are Compass and Gyroscope. Figure 2 indicates compass values (cyan) against ground truth (black), the latter of which is constant (horizontal) for each straight-line leg of the walk. Actual compass error (red) is calculated as the absolute difference between these two, whereas reported compass error (grey) is an estimate of error magnitude by the sensor itself. As can be seen, the actual error fluctuates both above and below the estimate. Gaps in the plot represent transitions between legs of the walk, during which we have no ground truth heading information.
+The study of today’s smartphone sensors’ reliability was done by Blum et al.[4]. The current state of the walking straight algorithm assumes a stable 10Hz Gyroscope. It solely depends on the sensors to calculate the heading.  
 
-Yaw (green), obtained from the gyro sensor, is not calibrated to north, so this only represents relative variation. This data is should be a flat line, excepting body sway while walking. Slope in yaw indicates drift, observed in all legs of this walk. The reported course (purple) is derived from the direction of travel based on previous location updates. Both the iPhone and Android devices report course and speed based on location changes, but these appear to be of limited use even in the constrained straight-line testing we performed. [2] The inaccurate results of this study point that our application cannot reply on these sensors solely.
+For example, MUN's logo can be seen in Figure~\ref{fig:MUN_Logo_Pantone}.
+\munepsfig{sensor}{This is MUN's logo}
 
+Figure XX indicates compass values (cyan) against ground truth (black), the latter of which is constant (horizontal) for each straight-line leg of the walk. Actual compass error (red) is calculated as the absolute difference between these two, whereas reported compass error (grey) is an estimate of error magnitude by the sensor itself. As can be seen, the actual error fluctuates both above and below the estimate. Gaps in the plot represent transitions between legs of the walk, during which we have no ground truth heading information.
+
+Yaw (green), obtained from the gyroscope sensor, is not calibrated to north, so this only represents relative variation. This data is should be a flat line, excepting body sway while walking. Slope in yaw indicates drift, observed in all legs of this walk. The reported course (purple) is derived from the direction of travel based on previous location updates. Both the iPhone and Android devices report course and speed based on location changes, but these appear to be of limited use even in the constrained straight-line testing they performed [4]. The inaccurate results of this study indicate that the application cannot solely rely on these sensors.
 
 \section{Computer vision solution}
-I have been working on overcoming the sensor inaccuracies using the camera in the smartphone and using computer vision techniques to generate a better feedback for the blind than what is present currently.
+I have been working on overcoming the sensor inaccuracies, using computer vision techniques on the video captured from a smartphone camera, to generate a better feedback for the blind than what is present currently.
 
 \subsection{Problem}
-The problem that I am solving is, to help blind users safely cross the street at intersections. In this problem, the sub problems are ‘when?’ to cross it and then get a feedback to cross it within the pedestrian markings by walking straight.
-
-The correct time of crossing the street can be determined by the state of the traffic light. The Traffic light recognition can be done using Color Segmentation, Shape Segmentation or template Matching or a combination of these. 
+Two kinds of feedback are required by blind people to cross the intersection: when to cross and audio feedback to maintain a straight path. The correct time to cross the street can be determined by the state of the traffic light. The traffic light recognition can be done using color segmentation, shape segmentation or template matching or a combination of these. 
 
 \subsection{Colour Segmentation}
 
-Colour Segmentations is the technique to partition into different sets of pixels. This can be done using specific color of the object we want to identify in the frame. I am using OpenCV 2.4 to do this. I first calculate the Hue, Saturation, and Value(HSV) Model. The image is from the source is in RGB format. It is converted to HSV and then standard thresholding technique is applied. HSV is color based model on human vision. The image on the right is the Binary image, the red cup being shown with white pixels.
+Color Segmentation is the technique to partition an image into different sets of pixels. This can be done using the specific color of the object we want to identify in the frame. I used OpenCV 2.4 to achieve this. I calculated the Hue, Saturation, and Value (HSV). The image from the source, in RGB format, was converted to HSV and then standard thresholding technique was applied. HSV is a color model based on human vision. The image(right) in Fig. XX is the binary image, the red cup being shown with white pixels.
  
 \subsubsection{Why HSV rather than RGB?}
 
@@ -39,123 +36,26 @@ Colour Segmentations is the technique to partition into different sets of pixels
 \begin{itemize}
 	\item The simple answer is that unlike RGB, HSV separates Luma, or the image intensity, from Chroma or the colour information. This is very useful in many applications. For example, if you want to do histogram equalization of a colour image, you probably want to do that only on the intensity component, and leave the colour components alone. Otherwise you will get very strange colours.
 	\item In computer vision you often want to separate colour components from intensity for various reasons, such as robustness to lighting changes, or removing shadows.
-	\item If you run into a problem, Google may be a helpful resource.
-	\item Concentrate on content, let \LaTeX{} handle the typesetting.
-	\item Don't worry about warnings related to:
-	\begin{itemize}
-		\item overfull \texttt{hboxes}/\texttt{boxes}
-		\item underfull \texttt{hboxes}/\texttt{vboxes}
-	\end{itemize}
-	These can be corrected with modest rewording of your text prior
-	to submission of your final copy.
+	
 \end{itemize}
 
-\section{The \texttt{Makefile}}
+Using thresholding only, we can track the traffic light, but that will not be accurate for all cases. There might be a few false detections.
 
-You can use \texttt{make} to ``build'' your thesis on the Linux command
-line\munfootnote{Linux is available on all machines running LabNet in
-\textsl{The Commons} and in other computer labs on campus.} This will
-automatically run the \texttt{bibtex} program to create your bibliography
-and will also re-run \texttt{latex} as necessary to ensure that all
-references are resolved.  A device independent file (\texttt{thesis.dvi})
-will be created, by default.  If you are using this template in another
-environment other than the Linux command line, then the \texttt{Makefile}
-will probably not be useful to you.
+\section{False Detections}
 
-\begin{itemize}
-\item To make a PostScript copy of your thesis, type the following
-at the command line:
+For a relatively simple case, such as a sky background, the color-based recognition method can effectively detect and identify traffic light. For a relatively complex situation, such as an urban environment, false detections will appear easily using the color-based recognition method. The shape-based feature recognition method can effectively reduce the false detections of the color-based feature recognition. But, the different shape characteristic rule has to be created for the different styles of traffic lights. This limits the flexibility of the algorithm. For the recognition method based on the template matching, the different styles of traffic light templates also have to be created to realize the recognition of the different style of the traffic light.
 
-\texttt{make thesis.ps}
+\subsection{Labelling}
+To overcome this problem of false detections in the scene, labeling the candidate region of the traffic light is one of the most feasible solutions. I intend to use the Canny Edge Detector, that is inbuilt in OpenCV libary, which makes it lightweight and efficient. We can detect the closest bounding rectangle of the light and then label the red and green lights accordingly. In this way we can eliminate any other object, which was previously identified as a potential traffic light.  This method was proposed by Gong et al. [2].
 
-\item To generate a PDF copy of your thesis, run:
+\section{Tracking}
+I plan to generate the feedback using OpenCV’s capabilities to extract motion from a video sequence using optical flow. Optical flow assess motion between two frames without any prior knowledge about the content of the frames. There are two types of tracking techniques, Dense Tracking technique and Sparse Tracking technique. Dense tracking technique utilizes each pixel in the frame to create a motion vector. This is computationally heavy and seldom used nowadays. We will use Sparse Tracking algorithm which calculates the motion vector for a subset of pixels
+\subsection{CAMShift}
+CAMShift is almost ideal for traffic light tracking from a pedestrian’s perspective for multiple reasons. One, the speed of the camera (pedestrian) is low. The traffic light (object) never disappears from the frame. Camshift allows for tracking objects whose size may change during the sequence. 
 
-\texttt{make thesis.pdf}
-
-\item To generate a PDF/A-1b copy of your thesis (which should
-satisfy the SGS's ethesis submission requirements):
-
-\texttt{make ethesis.pdf}
-
-\item To remove all the files generated by \texttt{bibtex} and
-\texttt{latex}, use the command:
-
-\texttt{make clean}
-
-\item To remove the intermediate files, but leave the PostScript
-and DVI/PDF files intact, use the command:
-
-\texttt{make neat}
-\end{itemize}
-
-As you add or remove figures, chapters, or appendices to your thesis,
-make sure you keep the \texttt{Makefile} upto date, too (see the
-\texttt{FIGURES} and \texttt{FILES} macros in the \texttt{Makefile}).
-
-\section{Changing Fonts}
-
-Change fonts: {\Large Large},
-\verb+verbatim ~@#$%^&*(){}[]+,
-\textsc{Small Caps},
-\textsl{slanted text},
-\emph{emphasized text},
-\texttt{typewriter text}.
-
-\section{Accents and Ligatures}
-
-Some accents:
-\'{e}
-\`{e}
-\^{o}
-\"{u}
-\c{c}
-\"{\i}
-\'{\i}
-\~{n}
-\={a}
-\v{a}
-\u{a}
-
-\noindent Some ligatures:
-fl{\ae}ffi
+\section{Future Work}
+The larger goal of the algorithm I am building is to help blind people walk straight whenever they wish to, irrespective of what is in the scene (e.g. Intersection). Feature extraction from the scene can be used to generate accurate feedback for the blind user. Corner and edge are the features will be suitable for our specific problem. I will implement SIFT and FAST corner detector algorithm for the edge detection. These algorithms are Scale and illumination Invariant. FAST has been tested on iPhone and is quite efficient.  
 
 
-\section{Some Lists}
 
-Here is a nested enumeration:
-\begin{enumerate}
-	\item An enumerated list of items.
-	\begin{enumerate}
-		\item which can 
-		\item nest
-		\begin{enumerate}
-			\item to arbitrary
-			\item levels
-		\end{enumerate}
-	\end{enumerate}
-	\item More items
-	\item in the top
-	\item level list.
-\end{enumerate}
-Another enumeration:
-\begin{enumerate}
-	\item
-	\begin{enumerate}
-		\item Main 1 part 1
-		\item Main 1 part 2
-	\end{enumerate}
-	\item
-	\begin{enumerate}
-		\item Main 2 part 1
-		\item Main 2 part 2
-	\end{enumerate}
-\end{enumerate}
 
-\subsection{Subsection}
-
-\subsubsection{Subsubsection}
-\label{sec:nested}
-This section is referred to by Section~\ref{sec:xrefs}.
-
-\subsubsection{Subsubsection}
-\textsf{$<$Empty subsection$>$}
