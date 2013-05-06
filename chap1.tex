@@ -1,67 +1,22 @@
 \chapter{Introduction}
 \label{chap:intro}
 
-\section{Getting started}
+\section{Introduction}
 
-This is the introductory chapter.  This will give you some
-ideas on how to use \LaTeX~\cite{lam1994} to typeset your document.
-Here is a sample quote using the \verb+\munquote+ environment:
+In this report I focus on two aspects of my work. First will be the techniques used to enhance Walking Straight Application using Computer Vision. Later, I shall describe the work on Real-Time Emergency Response: Modern Tools for Modern Disasters.
 
-\begin{munquote}[~\cite{lam1994}]%
-\LaTeX{} is a system for typesetting documents.  Its first widely
-available version, mysteriously numbered 2.09, appeared in 1985.  \LaTeX{}
-is now extremely popular in the scientific and academic communities, and
-it is used extensively in industry.  It has become a \emph{lingua franca}
-of the scientific world; scientists send their papers electronically to
-colleagues around the world in the form of \LaTeX{} input.%
-\end{munquote}
-
-The citation at the end is optional --- if you don't need it,
-then use \verb+\munquote+ without any arguments:
-
-\begin{munquote}%
-Here is a quote that does not have an associated citation
-after it.  You can specify the citation before or after the
-quote manually.%
-\end{munquote}
-
-By default, all text is double spaced, however, quotes and footnotes
-must be singled spaced.\munfootnote{This is a single spaced footnote.
-SGS requires that footnotes be singled spaced and this can be done with
-the \texttt{$\backslash$munfootnote} command.} The left margin is slightly
-wider than the right margin.  This is to compensate for binding.  
-
-An example mathematical formulae is show in
-Equation~\ref{eqn:sum}.
-
-\begin{muneqn}{sum}
-\sum_{i = 0}^{n} i^2
-\end{muneqn}
-
-A slightly more complicated equation is given in Equation~\ref{eqn:schrodinger}:
-\munfootnote{Equation taken from the \textsl{Schr\"{o}dinger equation}
-entry on \textsl{Wikipedia}}
-
-\begin{muneqn}{schrodinger}
-i\hbar \frac{\partial}{\partial t}\Psi(x,\,t)=
--\frac{\hbar^2}{2m}\nabla^2\Psi(x,\,t) + V(x)\Psi(x,\,t)
-\end{muneqn}
-
-\section{Cross References}
+\section{Walking straight}
 \label{sec:xrefs}
 
-In addition to using \verb+\ref+ to refer to equations, you can also use
-it (in conjunction with the \verb+\label+ command) to refer to sections
-and chapters without hard coding the numbers themselves.  For example,
-this is Section~\ref{sec:xrefs} of Chapter~\ref{chap:intro}.  You can
-also refer to Appendix~\ref{apdx:somelabel}, Subsection~\ref{sec:nested}
-below or any other place that has a \verb+\label+.  You can also use
-labels to refer to a page.  For example, Chapter~\ref{chap:figtab}
-starts on page~\pageref{chap:figtab}.
+Walking without vision, results in veering, an inability to maintain a straight path that has important consequences. This is a well-known problem. Many studies have been done on this and proved the veering effect. The reason is not certain but is hypothesized to be motor error in stepping movement.  Blind people have the same problem. This makes crossing intersections and walking straight dangerous and unsafe.
+‘Walking Straight’ a application for the smartphone device was developed.[3] It uses the available hardware on a smartphone device, the iPhone 4 to provide real-time audio feedback to the blind users to correct their deviation. The application is built using the ISAS (In-Situ Audio Services) [1] system architecture. The application uses compass and gyroscope sensors to calculate the deviation from a straight path. The values from the sensors are filtered to remove body sway of a person while walking. Different auditory feedback designs were evaluated experimentally and their performance was evaluated. A continuous tone played in the ear in the side of the deviation is concluded to be the most efficient way of rendering the audio feedback to the blind. [3].
 
-\section{Some Suggestions}
+\section{Are the sensors reliable?}
 
-Here are a few recommendations:
+The reliability of today’s smartphone sensors was done.[4----sensors study] The current state of walking straight algorithm assumes a stable 10Hz Gyroscope. It solely depends on the sensors to calculate the heading.  
+Captoins is mising
+The other two sensors are Compass and Gyroscope. Figure 2 indicates compass values (cyan) against ground truth (black), the latter of which is constant (horizontal) for each straight-line leg of the walk. Actual compass error (red) is calculated as the absolute difference between these two, whereas reported compass error (grey) is an estimate of error magnitude by the sensor itself. As can be seen, the actual error fluctuates both above and below the estimate. Gaps in the plot represent transitions between legs of the walk, during which we have no ground truth heading information.
+Yaw (green), obtained from the gyro sensor, is not calibrated to north, so this only represents relative variation. This data is should be a flat line, excepting body sway while walking. Slope in yaw indicates drift, observed in all legs of this walk. The reported course (purple) is derived from the direction of travel based on previous location updates. Both the iPhone and Android devices report course and speed based on location changes, but these appear to be of limited use even in the constrained straight-line testing we performed. [2] The inaccurate results of this study point that our application cannot reply on these sensors solely.
 
 \begin{itemize}
 	\item Before using this template, make sure you check with
