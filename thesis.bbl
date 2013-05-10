@@ -1,8 +1,40 @@
 \begin{thebibliography}{1}
 
-\bibitem{lam1994}
-L.~Lamport.
-\newblock {\em \LaTeX: A Document Preparation System}.
-\newblock Addison-Wesley Publishing Company, second edition, 1994.
+\bibitem{BlumMonet}
+J.~R. Blum, M.~Bouchard, and J.~R. Cooperstock.
+\newblock Spatialized audio environmental awareness for blind users with a
+  smartphone.
+\newblock {\em Mobile Networks and Applications}, pages 1--15, December 2012.
+
+\bibitem{BlumSensors}
+J.~R. Blum, D.~Greencorn, and J.~R. Cooperstock.
+\newblock Smartphone sensor reliability for augmented reality applications.
+\newblock In {\em Mobile and Ubiquitous Systems (Mobiquitous)}, December 2012.
+
+\bibitem{gong2010recognition}
+J.~Gong, Y.~Jiang, G.~Xiong, C.~Guan, G.~Tao, and H.~Chen.
+\newblock The recognition and tracking of traffic lights based on color
+  segmentation and camshift for intelligent vehicles.
+\newblock In {\em Intelligent Vehicles Symposium (IV), 2010 IEEE}, pages
+  431--435. IEEE, 2010.
+
+\bibitem{Mendoza:2010:TUC:1964858.1964869}
+M.~Mendoza, B.~Poblete, and C.~Castillo.
+\newblock Twitter under crisis: can we trust what we rt?
+\newblock In {\em Proceedings of the First Workshop on Social Media Analytics},
+  SOMA '10, pages 71--79, New York, NY, USA, 2010. ACM.
+
+\bibitem{walkingstraight}
+S.~A. PAN\"EELS, D.~VARENNE, J.~R. BLUM, and J.~R. COOPERSTOCK.
+\newblock The walking straight mobile application: Helping the visually
+  impaired avoid veering.
+\newblock (In Preparation).
+
+\bibitem{rter2013}
+S.~Smith, J.~R. Blum, A.~Eichhorn, N.~Jain, S.~Salenikovich, C.~Bell,
+  D.~Greencorn, and J.~R. COOPERSTOCK.
+\newblock Real-time emergency response: Improved management of real-time
+  information during crisis situations.
+\newblock (Submitted).
 
 \end{thebibliography}

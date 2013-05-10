@@ -3,31 +3,44 @@
 
 \section{Introduction}
 
-I will describe our Real Time Emergency Response (rtER) prototype system, designed to help manage real-time information during a crisis, largely focused on identifying and filtering the most critical information. The real-time Emergency Response project deals with the detection, observation, and assessment of situations requiring intervention by emergency responders. It offers them access to high-quality “live'' data that may be visualized effectively both by responders in-situ and by remote operators in dedicated control rooms.
-Unlike other systems that focus on still images and textual content, rtER also incorporates
-live video feeds. It also explores the utility of establishing a two way link between a person shooting a video from a smartphone camera and the other person directing the view of the camera from a remote location, to guide them to a better vantage point, implemented seamlessly into the web-based
+I will describe my work related to our Real Time Emergency Response (rtER) prototype system.As described by Smith et al. 
+\begin{munquote}[~\cite{rter2013}]
+"It is designed to help manage real-time information during a crisis, largely focused on identifying and filtering the most critical information. The real-time Emergency Response project deals with the detection, observation, and assessment of situations requiring intervention by emergency responders. It offers them access to high-quality live data that may be visualized effectively both by responders in-situ and by remote operators in dedicated control rooms.
+Unlike other systems that focus on still images and textual content, rtER also incorporates live video feeds.
+\end{munquote}
+ It also explores the utility of establishing a two way link between a person shooting a video from a smartphone camera and the other person directing the view of the camera from a remote location, to guide them to a better vantage point, implemented seamlessly into the web-based
 user interface. The system has following components
 \begin{enumerate}
 	\item Smartphone application.
 	\item Web server component.
 	\item Client web application.
 	\item An immersive visualization environment.
-\end{enumerate}
+\end{enumerate}\cite{rter2013}
 
-In emergency response and crisis management, the flow of information is tightly controlled through institutionalized hierarchical channels. Public perception can be key in preventing mass panic and maintaining public cooperation. The users of the different strata of group activity are:
+  
+In emergency response and crisis management, the flow of information is tightly controlled through institutionalized hierarchical channels. 
+\begin{munquote}[~\cite{rter2013}]
+Public perception can be key in preventing mass panic and maintaining public cooperation. The users of the different strata of group activity are:
 \begin{itemize}
-\item First Responders or emergency response team (ERT): need filtered information or results as immediate action needs to be taken
+\item First Responders or Emergency Response Team (ERT): need filtered information or results as immediate action needs to be taken
 \item Bystanders: provide real-time information and reports, may be unreliable 
 \item Public Information Officer (PIO), typically situated at the emergency operations center (EOC), where coordination and dispatch are handled   
 \item Virtual volunteers, arranged in different “trust” levels, and work closely with the PIO
 \item The general public
 \end{itemize}
-The use of the different technologies developed, serve different user groups as illustrated in figure XX
-
+\end{munquote}
+The use of the different technologies developed, serve different user groups as illustrated in Figure~\ref{fig:infotiers}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.2]{InformationTiers.png}
+\caption{Information tiers in the Real-Time Emergency response concept.}
+\label{fig:infotiers}
+\end{center}
+\end{figure}
 \section{Problem}
 The following scenario (based on real-life events) helps understand the motivation for building rtER.
 
-\begin{munquote}[~\cite{lam1994}]
+\begin{munquote}[~\cite{rter2013}]
 A 48-inch water main broke at the top of the hill that descends into downtown Montreal, right through the main McGill campus. There was massive flooding through all of the streets and into many of the buildings on the surrounding campus, with black ice underneath, making it practically impassable in many spots. The campus was almost completely surrounded by water making it challenging to find a way off campus.
 
 Jeff left just after the main break, but before any official news had been sent. He could not get off campus easily since the water was flowing too deep and fast through the streets, and had no way of figuring out how far the situation spread without slogging through knee-deep water. There were many students and others standing around with cameras taking pictures and video all around campus (later dozens of videos were posted online) and posting on social media.
@@ -36,19 +49,25 @@ For those in the buildings trying to plan their way home, being able to see thes
 
 We imagine that rtER would have helped us solve this problem. By allowing information---video, image or text---to be visualised in geographic context on the rtER map, users could have quickly understood what was occurring where. Moreover, filtering using the map would have provided a way for those looking for a way of campus to eliminate all superfluous information and see only the information coming from one area on their map. This would mean you could quickly confirm or deny if a route was safe.
 
-Since we are trying to build our system with collaboration in mind, repetitious search would be avoided and time could be saved. For example in this case most people posting pictures and videos were ``ambulance chasing'' by showing the drama and devastation, not the less interesting safe area. This means that the ``useful'' information was being buried by the ``shock value'' videos. Once a person had found a safe passage using our system, via a tweet suggesting a safe route or possibly a picture or a video showing an unflooded area, they could promote that information to higher priority for others to see. As a result the next person wouldn't need to repeat that search. They might instead simply add a confirmation after using the route, or perhaps provide an alternative. In this way we hope our system may make a more efficient use of human resources.”[5-rter big data paper]
+Since we are trying to build our system with collaboration in mind, repetitious search would be avoided and time could be saved. For example in this case most people posting pictures and videos were ``ambulance chasing'' by showing the drama and devastation, not the less interesting safe area. This means that the ``useful'' information was being buried by the ``shock value'' videos. Once a person had found a safe passage using our system, via a tweet suggesting a safe route or possibly a picture or a video showing an unflooded area, they could promote that information to higher priority for others to see. As a result the next person wouldn't need to repeat that search. They might instead simply add a confirmation after using the route, or perhaps provide an alternative. In this way we hope our system may make a more efficient use of human resources.”
 \end{munquote}
 
 
 
 \section{System Architecture}
-I was involved in the development of two components of the whole system, viz., android client application and the client web application.
+I have been involved in the development of two components of the whole system, viz., the android client application and the client web application.
 
 
 
 \subsection{Collaborative information web client}
-The web client was developed for the virtual operations support teams(give reference)(VOSTs). With the increasing public participation in emergency response, the number of incoming videos and social media streams can easily overwhelm the EOC personnel. The tool developed for this group of users, built around a web client (Figure XX), can be used by emergency responders to curate information including live video, Twitter feeds, YouTube and other social media.  My worked was focused on Twitter integration in the Web Client.
-
+The web client was developed for the virtual operations support teams\munfootnote{http://idisaster.wordpress.com/2012/02/13/what-is-a-virtual-operations-support-team/}(VOSTs). With the increasing public participation in emergency response, the number of incoming videos and social media streams can easily overwhelm the EOC personnel. The tool developed for this group of users, built around a web client (Figure~\ref{fig:clientscreen}), can be used by emergency responders to curate information including live video, Twitter feeds, YouTube and other social media.  My worked was focused on Twitter integration in the Web Client.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{clientscreen.png}
+\caption{The Web Client UI, displaying the video streams and twitter feeds, alongside a map.}
+\label{fig:clientscreen}
+\end{center}
+\end{figure}
 \subsubsection{Importance of Twitter in crisis management}
 The different stages of any disaster are: 
 
@@ -61,11 +80,11 @@ The different stages of any disaster are:
 \item Remedy
 \item Recovery
 \end{enumerate}
-Micro-blogging has been proven to be highly effective as one of the useful tools in stages 3 to 5 according to the above taxonomy. During these stages, more traditional communication channels are less effective than the emerging ICT ones. Twitter tends to describe a common/global topic, diminishing the network entropy. This makes Twitter an indispensable tool.
+Micro-blogging has been proven to be highly effective as one of the useful tools in stages 3 to 5 according to the above taxonomy. During these stages, more traditional communication channels are less effective than the emerging ICT ones. Twitter tends to describe a common/global topic, diminishing the network entropy. This makes Twitter an indispensable tool \cite{Mendoza:2010:TUC:1964858.1964869}.
 
-The backbone of the web client is HTML5 and AngularJS. AngularJS is an open-source JavaScript framework, maintained by Google. The framework adapts and extends traditional HTML to better serve dynamic content through two-way data-binding that allows for the automatic synchronization of models and views. This make our web client app responsive and provides near real-time updates in a particular web view. 
+The backbone of the web client is HTML5 and AngularJS\munfootnote{Angular JS - http://angularjs.org/}. AngularJS is an open-source JavaScript framework, maintained by Google. The framework adapts and extends traditional HTML to better serve dynamic content through two-way data-binding that allows for the automatic synchronization of models and views. This make our web client app responsive and provides near real-time updates in a particular web view. 
 
-The UI is built using AngularUI and Twitter Bootstrap UI. AngularUI is the companion suite(s) to the AngularJS framework. It comprises of several components: UI-Module, UI-Bootstrap, NG-Grid, UI-Router and IDE plug-ins. The Twitter Bootstrap UI is a front-end framework for faster and more elegant web development. This framework comprises of responsive css. This makes our web client app have a uniform UI on latest desktop, tablets and smartphone browsers as well.
+The UI is built using AngularUI\munfootnote{ http://angular-ui.github.io/} and Twitter Bootstrap UI\munfootnote{ http://twitter.github.io/bootstrap/}. AngularUI is the companion suite(s) to the AngularJS framework. It comprises of several components: UI-Module, UI-Bootstrap, NG-Grid, UI-Router and IDE plug-ins. The Twitter Bootstrap UI is a front-end framework for faster and more elegant web development. This framework comprises of responsive css. This makes our web client app have a uniform UI on latest desktop, tablets and smartphone browsers as well.
 
 The present implementation of the web client has two kinds of Twitter Items. 
 \begin{itemize}
@@ -78,14 +97,20 @@ The present implementation of the web client has two kinds of Twitter Items.
 		\item Words within \texttt{" "} -   This exact phrase
 		\item Words separated by \texttt{OR} - Any of these words
 		\item Words preceded by \texttt{-} - None of these words
-		\item Words preceded by \texttt{hboxes}/\texttt{vboxes}\\
 		\item \texttt{lang:} - language selection
 		\item Words separated by \texttt{ from: } - from these user accounts 
 		\item Words separated by \texttt{to:} - to these user accounts 
 		\item Words separated by \texttt{ \@} - mention of these user accounts 
-		\item \textbf{near:} - location selection 
+		\item \texttt{near:} - location selection 
 		\item \texttt{ :),:( , ? } - Positive sentiment, Negative sentiment, Question, respectively.		
 		\end{itemize}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{createtwitter.png}
+\caption{The image shows the form, used to create a twitter search item, the map shows a circle bounding the McGill University area}
+\label{fig:createtwitter}
+\end{center}
+\end{figure}	
 		\item The user can also select the result type of the stream from the following options: 
 		\begin{itemize}
 		\item \texttt{mixed} - Include both popular and real time results in the response.
@@ -93,186 +118,66 @@ The present implementation of the web client has two kinds of Twitter Items.
 		\item \texttt{popular} - Return only the most popular results in the response.
 		
 		\end{itemize}
-		\item The user can make the search query, location specific also. Using the map view, the user can draw a circular region on the map to define the area of search.
+		\item The user can make the search query location specific also. Using the map view, the user can draw a circular region on the map to define the area of search.
 	\end{itemize}
-		\item Close Up View : This view displays the stream of tweets resulting from the query. Each tweet can be ‘promoted’ to the common live feed as a ‘Single Tweet’. Also the user can ‘react’ to the tweet instantly.
+		\item Close Up View : This view displays the stream of tweets resulting from the query. Each tweet can be ‘promoted’ to the common live feed as a ‘single tweet’. Also, the user can ‘react’ to the tweet instantly.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{closeuptwittersearch.png}
+\caption{The twitter stream of recent tweets on 'fire'}
+\label{fig:closeuptwitter}
+\end{center}
+\end{figure}	
 		\item Tile View: This view represents the twitter search item as a part of the live feed in the form of an item of a grid of tiles. This emphasizes on the search term.
 	\end{itemize}	
 	\item Single Tweet: It is a single tweet that is promoted by the VOST members to promote it into the collaborative workspace.
 		\begin{itemize}
 			\item Create View: The Single tweet can be created by promoting a tweet from twitter search stream to the mainstream.
-			\item Close up Item: The Close-up view displays the tweet card of the particular tweet. Tweet card displays tweet with expanded media like photos, videos, and article summaries, and also include real-time retweet and favourite counts.They are interactive and enable the users to follow the Tweet author, and reply, re-tweet, favourite all directly from the page. To achieve this, I used the  oEmbed endpoint of Twitter. Resource url: \texttt{https://api.twitter.com/1/statuses/oembed.format}
+			\item Close up Item: The Close-up view displays the tweet card of the particular tweet. A tweet card displays a tweet with expanded media like photos, videos, and article summaries, and also includes real-time retweet and favourite counts. They are interactive and enable the users to follow the Tweet author, and reply, re-tweet, favourite all directly from the page. To achieve this, I used the  oEmbed endpoint of Twitter. Resource url: \texttt{https://api.twitter.com/1/statuses/oembed.format}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{singletweet.png}
+\caption{A Tweet Card}
+\label{fig:singletweet}
+\end{center}
+\end{figure}				
+
 			\item Tile Item: This view represents the twitter search item as a part of the live feed in the form of an item of a grid of tiles. This displays the text of the tweet in the tile to get a quick reference to the Single tweet.
 		\end{itemize}
 	
 \end{itemize}
 
 \section{Video Streaming}
+As described by Smith et al. 
+\begin{munquote}[~\cite{rter2013}]
 Previously, our system architecture lacked a robust video streaming architecture.
-Our latest video streaming architecture, shown in Figure 7, provides end-to-end scalable and relatively low-latency video from a smartphone source to HTML5 web clients, supporting ingest of multiple simultaneous streams at a server and scalable distribution to multiple simultaneous viewers.We achieve these goals by employing live encoding at the smartphone, transcoding streams into segmented video at a server and delivering video segments to web browsers using HTTP Live Streaming (HLS) [10] in two different formats, MPEG2-TS/H.264 and WebM/VP8. On the ingest side, our smartphone application encodes captured video frames into H.264/AVC [11], encapsulates them into a timestamped MPEG2 Transport Stream and forwards the video frame-wise via HTTP to our streaming server. I am involved in developing the Android client application.
+Our latest video streaming architecture, shown in Figure 7, provides end-to-end scalable and relatively low-latency video from a smartphone source to HTML5 web clients, supporting ingest of multiple simultaneous streams at a server and scalable distribution to multiple simultaneous viewers. We achieve these goals by employing live encoding at the smartphone, transcoding streams into segmented video at a server and delivering video segments to web browsers using HTTP Live Streaming (HLS) [10] in two different formats, MPEG2-TS/H.264 and WebM/VP8. On the ingest side, our smartphone application encodes captured video frames into H.264/AVC [11], encapsulates them into a timestamped MPEG2 Transport Stream and forwards the video frame-wise via HTTP to our streaming server \cite{rter2013}.
+\end{munquote}
+I have been involved in developing the android client application.
 
 \section{Android Client App}
 The typical use case for the mobile app places someone with a smartphone on site in a disaster scenario, ideally situated to provide relevant contextual data to emergency responders, possibly filtered by virtual volunteers. Using the rtER mobile app, the smartphone user streams a video feed, deemed to be relevant, which immediately appears as a live tile to VOST volunteers connected to the rtER web client, where it can be sorted based on its situational importance.
 
 	\begin{itemize}
 		\item Version 1 -  For the live video streaming, we used the open source ipcamera{reference required}, a project for android, along with \texttt{Google LibJingle} and \texttt{Nanohttpd}. These provide a peer to peer data transfer from the android device, acting as a server on a wifi network. Timestamped latitude and longitude information obtained using location-based services, are delivered to the server, in parallel to the live stream as a JSON object. This implementation creates a server on the android client which is blocked by the network provider’s firewall. Thus, the live video data cannot be sent.
-		\item Version 2 - In this version, we developed a new app from ground up. It streams jpeg images from the camera and provides a feature for directing the viewer to look at a desired vantage point. This created a two way link between the curator and the user of the app capturing the stream. The images are captured using Camera Class in Android SDK and the desired orientation of the device is indicated by the bounding box created in OpenGL, overlaid on the preview surface of the camera. This is illustrated in the figures below. The frame rate is low because each frame is captured after the previous has been written to the SD card(external storage) of the device. Then it is added into the queue, to be posted to the server.
+		\item Version 2 - In this version, we developed a new app from the ground up. It streams jpeg images from the camera and provides a feature for directing the viewer to look at a desired vantage point. This created a two way link between the curator and the user of the app capturing the stream. The images are captured using Camera Class in Android SDK and the desired orientation of the device is indicated by the bounding box created in OpenGL, overlaid on the preview surface of the camera. This is illustrated in the figures below. The frame rate is low because each frame is captured after the previous has been written to the SD card (external storage) of the device. Then it is added into the queue, to be posted to the server.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{androidv2.png}
+\caption{Android App showing two orientation. The Red bounding box indicates that the user should steer to the left and then the colour of the bounding box changes to green as shown below.}
+\label{fig:androidv2}
+\end{center}
+\end{figure}		
 		\item Version 3 -Currently, I am working on improving the frame rate to make the stream almost real-time video over 3g network. There are two possible ways to achieve this on android platform:
 		\begin{itemize}
-			\item \texttt{MediaRecorder} class: This is a class in android SDK, used to record audio and video from the device. The recording control is based on a simple state machine. H.264 encoded video is written to a Mpeg2 TS file. Android SDK Media API is one of the weak points of this platform. The API restricts the developer from writing the recorded data from the camera to a stream. Presently, this data can only be written to a file in the external/internal filesystem of the device. To circumvent this, I plan to write the file to a local socket using java.net.Socket. Network sockets also have file descriptors and they can be accessed using, \texttt{ParcelFileDescriptor}. Using this, we can plugin the video stream data into the socket. On the other end of the socket, we can retrieve the data and use HTTP Post to sent to the video server using \texttt{ChunkedOutputStream} in android. The advantage of this method is, it uses the device’s hardware encoders. This will be faster and computationally inexpensive. 
-			\item FMpeg and Libx264: This method involves extracting raw frames from the camera and encoding them to H.264 using FFMpeg Library. This can be achieved using Android Native Development Kit(NDK). Then H.264 encoded frames can be individually sent to the server via HTTP Post. The server handles the packaging of these frames into a Mpeg2TS stream. This method is comparatively slower and less efficient, as it uses more resources. Our iOS implementation uses the same architecture. The optimum parameters of the video stream transmitted is 15 frames per second(fps) at a resolution of 640 x 360 at 600kbps using iPhone 4s devices. This is susceptible to network congestion.		
+			\item \texttt{MediaRecorder} class: This is a class in android SDK, used to record audio and video from the device. The recording control is based on a simple state machine. H.264 encoded video is written to a Mpeg2 TS file. Android SDK Media API is one of the weak points of this platform. The API restricts the developer from writing the recorded data from the camera to a stream. Presently, this data can only be written to a file in the external/internal filesystem of the device. To circumvent this, I plan to write the file to a local socket using java.net.Socket. Network sockets also have file descriptors and they can be accessed using, \texttt{ParcelFileDescriptor}. Using this, we can plug in the video stream data into the socket. On the other end of the socket, we can retrieve the data and use HTTP Post to sent to the video server using \texttt{ChunkedOutputStream} in android. The advantage of this method is, it uses the device’s hardware encoders. This will be faster and computationally inexpensive. We can achieve 30fps stream without any compromises in the performance of the app.
+			\item FFMpeg and Libx264: This method involves extracting raw frames from the camera and encoding them to H.264 frames using FFMpeg Library. This can be achieved using Android Native Development Kit (NDK). Then H.264 encoded frames can be individually sent to the server via HTTP Post. The server handles the packaging of these frames into a Mpeg2 TS stream. This method is comparatively slower and less efficient, as it uses more resources on the device. Our iOS implementation  uses the same architecture. The optimum parameters of the video stream transmitted is 15 frames per second (fps) at a resolution of 640 x 360 at 600kbps using iPhone 4s devices. This is susceptible to network congestion.		
 		\end{itemize}
 	This is a work in progress.	
 	\end{itemize}
-
-
-
-
-
-We can include encapsulated PostScript\texttrademark\ figures
-(\texttt{.eps}) in the document and refer to it using a label.
-For example, MUN's logo can be seen in Figure~\ref{fig:MUN_Logo_Pantone}.
-\munepsfig{MUN_Logo_Pantone}{This is MUN's logo}
-
-Figure~\ref{fig:enrollment} shows a chart of MUN's Fall
-enrollment from 2005 -- 2009.\munfootnote{From \emph{Memorial
-University of Newfoundland --- Fact Book 2009}.}
-\munepsfig[scale=0.50]{enrollment}{MUN Fall Enrollment 2005 -- 2009}
-The figure was created using the \textsf{Calc} spreadsheet application of
-the office suite \textsf{OpenOffice.org}.\munfootnote{This office suite
-can be downloaded at no cost from \texttt{http://openoffice.org/}. Unlike
-other commercial office suites, \textsf{OpenOffice.org} may be legally
-shared with colleagues and fellow students.  There are versions for
-Linux, Microsoft Windows, Mac~OS~X and Solaris.  Also, unlike commercial
-offerings, \textsf{OpenOffice.org} does not require activation using
-registration keys.}  This figure was reduced by 50\%.
-
-For larger figures, we can use landscape mode to rotate the page
-and display the figure using the \verb+\munlepsfig+ command, as shown
-in Figure~\ref{fig:enrollment-landscape}.  The figure will be the
-only thing on the page when typeset in landscape mode. 
-(The figure is reduced to 85\% of its original size.)
-\munlepsfig[scale=0.85]{enrollment-landscape}
-	{MUN Fall Enrollment 2005 -- 2009 (landscape)}
-
-Alternatively, if we just want to rotate the figure, but not 
-the entire page, we can specify an \texttt{angle} attribute
-in the default argument of the \verb+\munepsfig+ command.
-The result is shown in Figure~\ref{fig:enrollment-rotate}.
-If the figure is too large or if there isn't sufficient
-text, then the figure may appear on its own page.
-\munepsfig[scale=0.30,angle=90]{enrollment-rotate}
-	{MUN Fall Enrollment 2005 -- 2009 (rotated)}
-
-Note that all three of the enrollment figures are basically
-the same file, but with different names --- on Linux, they are
-symbolic links to the same file.  The filenames have to be different
-because the reference labels need to be unique.
-
-Figure~\ref{fig:db-deadlock} shows a Petri net created using the
-\texttt{xfig} program (\texttt{http://www.xfig.org/}) which has
-very good support for \LaTeX.  This figure has been
-reduced to 40\% of its original size.
-\munepsfig[scale=0.40]{db-deadlock}{A deadlocked Petri net}
-
-We can also create figures of text (such as short code snippets)
-using the \verb+\muntxtfig+ command, as show in Figure~\ref{fig:code}.
-\begin{muntxtfig}[1.0]{code}{Hello World}{0.5\textwidth}
-\begin{verbatim}
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-  printf("Hello world!\n");
-  exit(0);
-}
-\end{verbatim}
-\end{muntxtfig}
-
-\section{Tables}
-
-We can also create tables, as seen by Table~\ref{tab:pop}.  Note that,
-as required by SGS guidelines, the caption for a table appears above the
-table whereas figure captions appear below the figures.  Tables and
-figures can ``float'' --- they may not appear on the page on which they
-are mentioned.  \LaTeX{} tries to handle figure and table placement
-intelligently, but if if you have a lot of them without a reasonable
-amount of surrounding textual content, the figures and tables can
-accumulate towards the end of the chapter.  Generally speaking, if
-there is sufficient text explaining the tables and figures or if the
-tables/figures are relatively small, this may not be a problem.  However,
-if you have a lot of tables or figures, it may be a good idea to put
-them in an appendix and refer to them as the need arises.
-
-\begin{muntab}{c||c|c|c||c|c|c|}{pop}{Fall Semester Enrollment}
-\hline
-	& \multicolumn{3}{c||}{Undergraduate}
-	& \multicolumn{3}{c|}{Graduate} \\
-\cline{2-7}
-     & F/T & P/T & Total & F/T & P/T & Total \\
-\cline{2-7}
-2004 & 13,191 & 2,223 & 15,414 & 1,308 & 879 & 2,187 \\
-2005 & 13,184 & 2,143 & 15,327 & 1,375 & 920 & 2,295 \\
-2006 & 12,809 & 2,224 & 15,033 & 1,373 & 899 & 2,272 \\
-2007 & 12,634 & 2,155 & 14,789 & 1,403 & 899 & 2,302 \\
-2008 & 12,269 & 2,208 & 14,477 & 1,410 &1,005& 2,415 \\
-2009 & 12,382 & 2,323 & 14,705 & 1,567 &1,106& 2,673 \\
-\hline
-\end{muntab}
-
-Table~\ref{tab:degrees} shows a different table in landscape
-mode.\munfootnote{This data was also taken from the \emph{Memorial
-University of Newfoundland --- Fact Book 2009}.} This is useful if your
-table is too wide for the page.  Tables are double-spaced by default.
-To single-space a table, change the \verb+\baselinestretch+ before
-beginning the table environment.  Remember to restore it after the
-environment has ended.
-
-\renewcommand{\baselinestretch}{1.0}\normalsize
-\begin{munltab}{lrrrrrrrrrrrr}
-	{degrees}
-	{Masters Degrees Conferred by Convocation Session --- 1950 to 2009}
-\cline{2-13}
-				&
-\multicolumn{2}{|c|}{2009}	&
-\multicolumn{2}{c|}{2008}	& 
-\multicolumn{2}{c|}{2007}	& 
-\multicolumn{2}{c|}{2006}	& 
-\multicolumn{2}{c|}{2006}	& 
-\multicolumn{1}{c|}{1950--2004}	& 
-\multicolumn{1}{c|}{Total}	\\
-\cline{2-13}
-	  &
-May & Oct &
-May & Oct &
-May & Oct &
-May & Oct &
-May & Oct & &  \\
-Degrees \\
-\hline
-Master of Applied Science		&  14 &   2 &  15 &   8 &  28 &   1 &  21 &   3 &   3 &   1 &    98 &   194 \\
-Master of Applied Social Psychology     &   1 &   5 &   2 &   5 &   1 &   4 &   0 &   4 &   0 &   4 &    28 &    54 \\
-Master of Applied Statistics            &   0 &   0 &   3 &   1 &   0 &   0 &   1 &   0 &   0 &   0 &    19 &    24 \\
-Master of Arts                          &  37 &  49 &  26 &  43 &  14 &  42 &  14 &  56 &  13 &  44 &   994 & 1,332 \\
-Master of Business Administration       &  14 &  16 &  23 &   6 &  33 &  12 &  33 &  11 &  33 &   8 &   818 & 1,007 \\
-Master of Education                     & 107 &  87 & 120 &  55 & 147 &  74 & 108 &  76 & 113 &  75 & 2,603 & 3,565 \\
-Master of Employment Relations          &   8 &   9 &   5 &   7 &   7 &  14 &   4 &   9 &   3 &   5 &    12 &    83 \\
-Master of Engineering                   &  20 &  19 &  20 &  10 &  16 &  10 &  15 &  13 &   4 &  19 &   440 &   586 \\
-Master of Environmental Science         &   3 &   3 &   3 &   1 &   0 &   1 &   7 &   1 &   3 &   1 &    66 &    89 \\
-Master of Marine Studies                &   2 &   0 &   0 &   1 &   0 &   2 &   2 &   2 &   1 &   2 &    26 &    38 \\
-Master of Music                         &   4 &   1 &   5 &   0 &   3 &   0 &   3 &   0 &   3 &   0 &     7 &    26 \\
-Master of Nursing                       &   7 &   8 &  10 &   4 &  17 &   4 &  23 &   7 &   6 &   1 &   116 &   203 \\
-Master of Oil and Gas Studies           &   0 &   0 &   2 &   0 &   0 &   0 &   0 &   2 &   4 &   0 &     0 &     8 \\
-Master of Philosophy                    &   5 &   4 &   2 &   1 &   5 &   2 &   5 &   3 &   2 &   0 &   112 &   141 \\
-Master of Physical Education            &   0 &   2 &   3 &   0 &   5 &   4 &   3 &   0 &   4 &   4 &    84 &   109 \\
-Master of Public Health                 &   0 &   8 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &     0 &     8 \\
-Master of Science                       &  40 &  32 &  41 &  19 &  29 &  25 &  35 &  29 &  32 &  23 & 1,653 & 1,958 \\
-Master of Science (Kinesiology)         &   1 &   0 &   4 &   2 &   1 &   2 &   2 &   6 &   4 &   3 &     0 &    25 \\
-Master of Science (Medicine)            &  18 &   7 &  11 &   8 &  10 &   5 &   9 &   9 &   8 &   4 &     0 &    89 \\
-Master of Science (Pharmacy)            &   0 &   0 &   1 &   1 &   0 &   0 &   0 &   0 &   1 &   0 &    16 &    19 \\
-Master of Social Work                   &   4 &  11 &   4 &   5 &   4 &   9 &   9 &   5 &   4 &  10 &   257 &   322 \\
-Master of Women's Studies               &   2 &   0 &   2 &   0 &   1 &   1 &   2 &   3 &   2 &   0 &    20 &    33 \\
-\hline
-\textbf{Total Masters}                  & 287 & 263 & 302 & 177 & 321 & 212 & 296 & 239 & 243 & 204 & 7,369 & 9,913 \\
-\end{munltab}
-\renewcommand{\baselinestretch}{\spacing}\normalsize
+\section{Accomplishments}
+During my project, these were the major accomplishments.
+\begin{enumerate}
+	\item rtER was Gold prize winning project in Brainstorming round in Mozilla Ignite
+	\item Our team is selected to showcase rtER in finale of USA Ignite in Chicago.
+\end{enumerate}
